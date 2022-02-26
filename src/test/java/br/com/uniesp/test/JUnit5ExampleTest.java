@@ -19,6 +19,7 @@ class JUnit5ExampleTest {
     void configuraApi() {
         baseURI = 	"https://reqres.in/";
     }
+
     @Test
     void justAnExample() {
 
@@ -42,14 +43,14 @@ class JUnit5ExampleTest {
 //        basePath = "/api/users";
         given()
                 .when()
-                .get("api/users/2")
+                .get("api/users/3")
                 .then().contentType("application/json")
                 .statusCode(HttpStatus.SC_OK)
                 .log().all();
     }
     @Test
     void methodPostFull() {
-        PessoaRequest pessoaRequest = new PessoaRequest("thiago","QA");
+        PessoaRequest pessoaRequest = new PessoaRequest("arlon","QA2");
 
         basePath= "/api/users";
         PessoaResponse as = given().log().all()
@@ -68,4 +69,5 @@ class JUnit5ExampleTest {
         Assertions.assertEquals(pessoaRequest.getNome(), as.getNome());
         Assertions.assertEquals(pessoaRequest.getJob(), as.getJob());
     }
+
 }
